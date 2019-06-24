@@ -1,0 +1,22 @@
+{
+  "TABS": [
+    {
+      "langName" : "Test",
+      "icon" : "fdsfsdf"
+    }
+  ],
+  "BLOCKS": [
+    {
+      "langName" : "Example Block",
+      "unlocalizedName": "exampleBlock",
+      "registryName" : "example_block"
+    }
+  ],
+  "ITEMS": [
+    {
+      "langName" : "Example Item",
+      "unlocalizedName": "exampleItem",
+      "registryName" : "example_item"
+    }
+  ]
+}
