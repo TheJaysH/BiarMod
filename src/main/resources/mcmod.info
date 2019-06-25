@@ -1,6 +1,6 @@
 [
   {
-    "modid": "biartmod",
+    "modid": "biarmod",
     "name": "Blocks & Items at Runtime",
     "description": "Add BLocks and Items without any code!",
     "version": "${version}",

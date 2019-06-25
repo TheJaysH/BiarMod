@@ -12,8 +12,8 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 
 version = "0.1.1"
-group = "com.thejays.biartmod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "biartmod"
+group = "com.thejays.biarmod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "biarmod"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
