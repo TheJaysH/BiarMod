@@ -7,9 +7,12 @@ import com.thejays.biartmod.objects.BiartBase;
 import com.thejays.biartmod.objects.children.BiartBlockBase;
 import com.thejays.biartmod.objects.children.BiartItemBase;
 import com.thejays.biartmod.objects.children.BiartTabBase;
+import com.thejays.biartmod.util.BiartArchiver;
 import com.thejays.biartmod.util.BiartDeserialization;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+
+import java.io.File;
 
 /**
  * This class is responsible for parsing the json file, then creating the BiartBase object ({@link com.thejays.biartmod.objects.BiartBase})
@@ -19,14 +22,28 @@ public class BiartInit {
     public static BiartBase biartBase;
 
     /**
+     * //TODO: Update comment
      * This Method will try to Deserialize the json file to {@link com.thejays.biartmod.objects.BiartBase}
      */
     public static void preInit(){
 
         try {
+
+            File fileZip = new File(BiartMod.BIART_ROOT, "biartmod.zip");
+            File destDir = new File(BiartMod.BIART_ROOT, "/");
+
+            BiartArchiver.unZip(fileZip, destDir);
+
+        } catch (Exception e){
+
+            BiartMod.logger.error("biart preInit#unZip failed: " + e.getMessage());
+
+        }
+
+        try {
             biartBase = BiartDeserialization.getBiartBase();
         } catch (Exception e) {
-            BiartMod.logger.error("biart preInit failed: " + e.getMessage());
+            BiartMod.logger.error("biart preInit#getBiartBase failed: " + e.getMessage());
         }
 
     }

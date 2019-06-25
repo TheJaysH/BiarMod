@@ -3,6 +3,7 @@ package com.thejays.biartmod;
 import com.thejays.biartmod.proxy.ClientProxy;
 import com.thejays.biartmod.proxy.IProxy;
 import com.thejays.biartmod.proxy.ServerProxy;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +30,8 @@ public class BiartMod
     public static final String NAME = "Blocks & Items at Runtime";
     public static final String VERSION = "0.1.1";
     public static final String MC_VERSION = "[1.12.2]";
+
+    public static final File BIART_ROOT = new File(Minecraft.getMinecraft().mcDataDir, BiartMod.MODID);
 
     public static Logger logger;
 

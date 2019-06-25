@@ -11,13 +11,13 @@ import java.nio.file.Files;
 
 public class BiartDeserialization {
 
-    private static final File BIART_ROOT = new File(Minecraft.getMinecraft().mcDataDir, BiartMod.MODID);
+
     private static final Gson GSON =  new GsonBuilder().create();
 
     public static BiartBase getBiartBase(){
 
         BiartBase biartBase = null;
-        File file = new File(BIART_ROOT, "biart.json");
+        File file = new File(BiartMod.BIART_ROOT, "biart.json");
 
         try {
 
