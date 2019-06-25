@@ -1,4 +1,4 @@
-package com.thejays.biartmod.util;
+package com.thejays.biartmod.init;
 
 import com.thejays.biartmod.BiartMod;
 import com.thejays.biartmod.init.BiartBlocks;
@@ -7,13 +7,20 @@ import com.thejays.biartmod.objects.BiartBase;
 import com.thejays.biartmod.objects.children.BiartBlockBase;
 import com.thejays.biartmod.objects.children.BiartItemBase;
 import com.thejays.biartmod.objects.children.BiartTabBase;
+import com.thejays.biartmod.util.BiartDeserialization;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
+/**
+ * This class is responsible for parsing the json file, then creating the BiartBase object ({@link com.thejays.biartmod.objects.BiartBase})
+ */
 public class BiartInit {
 
     public static BiartBase biartBase;
 
+    /**
+     * This Method will try to Deserialize the json file to {@link com.thejays.biartmod.objects.BiartBase}
+     */
     public static void preInit(){
 
         try {
@@ -24,25 +31,33 @@ public class BiartInit {
 
     }
 
+
+    /**
+     * This Method will try init blocks & items
+     */
     public static void init(){
 
+        // Check if biartBase was created, return otherwise.
         if (null == biartBase){
             BiartMod.logger.error("biartBase is null, Refusing to initialize Objects.");
             return;
         }
 
+        // Load the Tabs
         try {
             initTabs();
         } catch (Exception e) {
             BiartMod.logger.error("biart init failed: " + e.getMessage());
         }
 
+        // Load the Blocks
         try {
             initBlocks();
         } catch (Exception e) {
             BiartMod.logger.error("biart init failed: " + e.getMessage());
         }
 
+        // Load the Items
         try {
             initItems();
         } catch (Exception e) {

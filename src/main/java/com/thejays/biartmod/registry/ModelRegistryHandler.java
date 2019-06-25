@@ -1,4 +1,4 @@
-package com.thejays.biartmod.util;
+package com.thejays.biartmod.registry;
 
 import com.thejays.biartmod.BiartMod;
 import com.thejays.biartmod.init.BiartBlocks;

@@ -4,7 +4,7 @@ import com.thejays.biartmod.BiartMod;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 
-public class BairtResourceInitilize {
+public class BairtResourceInit {
 
 //    public static void init(){
 //
