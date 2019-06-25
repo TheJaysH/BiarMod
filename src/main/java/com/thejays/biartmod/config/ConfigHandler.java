@@ -13,8 +13,13 @@ import java.util.Map;
 @Config(modid = BiartMod.MODID)
 public class ConfigHandler {
 
-    @Config.Comment("Will check for biartmod.zip then extract & compile the resources *RESTART REQUIRED")
+    @Config.Comment("Will check for biartmod.zip then extract & compile the resources")
+    @Config.RequiresMcRestart
     public static boolean compileResources = true;
+
+    @Config.Comment("If true biartmod.zip will not be extracted")
+    @Config.RequiresMcRestart
+    public static boolean useJsonOnly = false;
 
     public static final Blocks blocks = new Blocks();
     public static final Items items = new Items();
@@ -22,12 +27,16 @@ public class ConfigHandler {
     public static class Blocks {
 
         @Config.Comment("The default block hardness")
+        @Config.RangeDouble(min = 1, max = 18000000)
+        @Config.RequiresMcRestart
         public float hardness = 1.5f;
 
         @Config.Comment("The default block sound")
+        @Config.RequiresMcRestart
         public String soundType = "STONE";
 
         @Config.Comment("The default block material")
+        @Config.RequiresMcRestart
         public String materialType = "BRICK";
 
     }
@@ -35,6 +44,8 @@ public class ConfigHandler {
     public static class Items {
 
         @Config.Comment("The default item stack size")
+        @Config.RangeInt(min = 1, max = 64)
+        @Config.RequiresMcRestart
         public int maxStackSize = 64;
     }
 

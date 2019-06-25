@@ -14,6 +14,8 @@ public class BiartItems {
 
     public static void addItem(BiartItemBase itemIn){
 
+        BiartMod.logger.info("ADDING ITEM: " + itemIn.registryName );
+
         try {
 
             Item item = new ItemBase(itemIn.unlocalizedName, itemIn.registryName);

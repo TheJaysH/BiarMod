@@ -19,7 +19,6 @@ public class ModelRegistryHandler {
     public static void registerModels(ModelRegistryEvent event) {
 
         registerItems();
-
         registerBlocks();
 
     }

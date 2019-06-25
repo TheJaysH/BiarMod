@@ -11,9 +11,9 @@ import java.nio.file.Files;
 
 public class BiartDeserialization {
 
-
     private static final Gson GSON =  new GsonBuilder().create();
 
+    //TODO: This looks a bit messy - must clean it up!
     public static BiartBase getBiartBase(){
 
         BiartBase biartBase = null;
@@ -22,7 +22,8 @@ public class BiartDeserialization {
         try {
 
             if (!file.exists()) {
-                throw new Exception("Failed to load biart.json: File not found (" + file.getAbsolutePath() +")");
+                BiartMod.logger.error("Failed to load biart.json: File not found (" + file.getAbsolutePath() +")");
+                return null;
             }
 
             String json = getJsonString(file);

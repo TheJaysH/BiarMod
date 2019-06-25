@@ -25,6 +25,9 @@ public class BiartArchiver {
             while (zipEntry != null) {
                 File newFile = new File(destination, zipEntry.getName());
                 FileOutputStream fos = new FileOutputStream(newFile);
+
+                BiartMod.logger.info("EXTRACTING: " + newFile.getName());
+
                 int len;
                 while ((len = zis.read(buffer)) > 0) {
                     fos.write(buffer, 0, len);

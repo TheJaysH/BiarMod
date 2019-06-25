@@ -1,6 +1,7 @@
 package com.thejays.biartmod.init;
 
 import com.thejays.biartmod.BiartMod;
+import com.thejays.biartmod.config.ConfigHandler;
 import com.thejays.biartmod.init.BiartBlocks;
 import com.thejays.biartmod.init.BiartItems;
 import com.thejays.biartmod.objects.BiartBase;
@@ -27,25 +28,16 @@ public class BiartInit {
      */
     public static void preInit(){
 
-        try {
+        if (!ConfigHandler.useJsonOnly){
 
-            File fileZip = new File(BiartMod.BIART_ROOT, "biartmod.zip");
-            File destDir = new File(BiartMod.BIART_ROOT, "/");
+            extractBiartFiles();
 
-            BiartArchiver.unZip(fileZip, destDir);
-
-        } catch (Exception e){
-
-            BiartMod.logger.error("biart preInit#unZip failed: " + e.getMessage());
-
+            if (ConfigHandler.compileResources){
+                //TODO: compileResources
+            }
         }
 
-        try {
-            biartBase = BiartDeserialization.getBiartBase();
-        } catch (Exception e) {
-            BiartMod.logger.error("biart preInit#getBiartBase failed: " + e.getMessage());
-        }
-
+        deserializeBase();
     }
 
 
@@ -59,6 +51,8 @@ public class BiartInit {
             BiartMod.logger.error("biartBase is null, Refusing to initialize Objects.");
             return;
         }
+
+        BiartMod.logger.info("********************** INITIALIZING OBJECTS **********************");
 
         // Load the Tabs
         try {
@@ -112,7 +106,6 @@ public class BiartInit {
                     continue;
                 }
 
-                BiartMod.logger.info("ADDING ITEM: " + item.registryName );
                 BiartItems.addItem(item);
             }
         else
@@ -131,12 +124,34 @@ public class BiartInit {
                 }
 
                 BiartTabs.addTab(tab);
-
-                BiartMod.logger.info("ADDING TAB: " + tab.langName);
             }
         else
             BiartMod.logger.warn("No TABS found in biart");
 
     }
 
+    private static void deserializeBase(){
+        try {
+            biartBase = BiartDeserialization.getBiartBase();
+        } catch (Exception e) {
+            BiartMod.logger.error("biart preInit#getBiartBase failed: " + e.getMessage());
+        }
+    }
+
+    private static void extractBiartFiles(){
+
+        try {
+
+            File fileZip = new File(BiartMod.BIART_ROOT, "biartmod.zip");
+            File destDir = new File(BiartMod.BIART_ROOT, "/");
+
+            BiartArchiver.unZip(fileZip, destDir);
+
+        } catch (Exception e){
+
+            BiartMod.logger.error("biart preInit#unZip failed: " + e.getMessage());
+
+        }
+
+    }
 }
