@@ -17,6 +17,7 @@ The blocks and items are then injected into forge to be used as normal blocks & 
  * This mod will **NOT** grant you the ability to add Entities of any kind (yet)
  * You will **NOT** be able to add any advance functionality to the blocks/items (yet)
 
+------
 
 ### Zip File Structure 
 
@@ -55,7 +56,10 @@ The blocks and items are then injected into forge to be used as normal blocks & 
       "langName" : "Example Block",
       "unlocalizedName": "exampleBlock",
       "registryName" : "example_block",
-      "tabIndex" : 0
+      "tabIndex" : 0,
+      "hardness" : 1.5,
+      "soundType" : "STONE",
+      "material" : "ROCK"
     }
   ],
   "ITEMS": [
