@@ -6,4 +6,8 @@ public class BiartTabBase extends BiartObject {
 
     public String icon;
 
+    public BiartTabBase(){
+        this.registryName = "";
+    }
+
 }

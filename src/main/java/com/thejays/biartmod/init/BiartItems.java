@@ -12,11 +12,19 @@ public class BiartItems {
 
     public static List<Item> ITEMS = new ArrayList<>();
 
-    public static void addItem(BiartItemBase item){
+    public static void addItem(BiartItemBase itemIn){
 
-        try{
+        try {
 
-            ITEMS.add(new ItemBase(item.unlocalizedName, item.registryName));
+            Item item = new ItemBase(itemIn.unlocalizedName, itemIn.registryName);
+
+            if (itemIn.hasTabIndex() && BiartInit.biartBase.hasTabs())
+                item.setCreativeTab(BiartMod.CREATIVE_TABS.get(itemIn.tabIndex));
+
+            if (itemIn.hasMaxStackSize())
+                item.setMaxStackSize(itemIn.maxStackSize);
+
+            ITEMS.add(item);
 
         } catch ( Exception e){
 

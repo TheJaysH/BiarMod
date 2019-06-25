@@ -37,7 +37,7 @@ public class BiartInit {
      */
     public static void init(){
 
-        // Check if biartBase was created, return otherwise.
+        // Check if biartBase was created, otherwise return.
         if (null == biartBase){
             BiartMod.logger.error("biartBase is null, Refusing to initialize Objects.");
             return;
@@ -47,30 +47,36 @@ public class BiartInit {
         try {
             initTabs();
         } catch (Exception e) {
-            BiartMod.logger.error("biart init failed: " + e.getMessage());
+            BiartMod.logger.error("biart initTabs failed: " + e.getMessage());
         }
 
         // Load the Blocks
         try {
             initBlocks();
         } catch (Exception e) {
-            BiartMod.logger.error("biart init failed: " + e.getMessage());
+            BiartMod.logger.error("biart initBlocks failed: " + e.getMessage());
         }
 
         // Load the Items
         try {
             initItems();
         } catch (Exception e) {
-            BiartMod.logger.error("biart init failed: " + e.getMessage());
+            BiartMod.logger.error("biart initItems failed: " + e.getMessage());
         }
 
     }
 
 
-    public static void initBlocks(){
+    private static void initBlocks(){
 
-        if (biartBase.BLOCKS.length > 0)
+        if (biartBase.hasBlocks())
             for (BiartBlockBase block : biartBase.BLOCKS){
+
+                if (!block.hasValues()){
+                    BiartMod.logger.warn("Refusing to load BLOCK: Missing required values");
+                    continue;
+                }
+
                 BiartMod.logger.info("ADDING BLOCK: " + block.registryName);
                 BiartBlocks.addBlock(block);
             }
@@ -81,8 +87,14 @@ public class BiartInit {
 
     private static void initItems(){
 
-        if (biartBase.ITEMS.length > 0)
+        if (biartBase.hasItems())
             for (BiartItemBase item : biartBase.ITEMS){
+
+                if (!item.hasValues()){
+                    BiartMod.logger.warn("Refusing to load ITEM: Missing required values");
+                    continue;
+                }
+
                 BiartMod.logger.info("ADDING ITEM: " + item.registryName );
                 BiartItems.addItem(item);
             }
@@ -93,9 +105,17 @@ public class BiartInit {
 
     private static void initTabs(){
 
-        if (biartBase.TABS.length > 0)
+        if (biartBase.hasTabs())
             for (BiartTabBase tab : biartBase.TABS){
-                BiartMod.logger.info("TAB: " + tab.langName);
+
+                if (!tab.hasValues()){
+                    BiartMod.logger.warn("Refusing to load TAB: Missing required values");
+                    continue;
+                }
+
+                BiartTabs.addTab(tab);
+
+                BiartMod.logger.info("ADDING TAB: " + tab.langName);
             }
         else
             BiartMod.logger.warn("No TABS found in biart");
