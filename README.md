@@ -1,4 +1,4 @@
-# Biart Mod - Blocks & Items at Runtime
+# Biar Mod - Blocks & Items at Runtime
 
 ### **This mod is still at the POC stage and is not yet fully complete.** 
 
@@ -6,7 +6,7 @@
 ### What does this mod do?
 This mods purpose is to allow users to add basic blocks & items to Minecraft Forge without any custom code. 
 
-By updating the `biartmod/biart.json` file you can add blocks & items at runtime.
+By updating the `biarmod/biar.json` file you can add blocks & items at runtime.
 
 ### What doesn't this mod do?
  * This mod will **NOT** grant you the ability to add Entities of any kind (yet)
