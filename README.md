@@ -1,8 +1,7 @@
 # Biar Mod - Blocks & Items at Runtime
 
-## For Minecraft [1.12.2]
+Minecraft [1.12.2]
 ------
-
 ### **This mod is still at the POC stage and is not yet fully complete.** 
 
 ### What does this mod do?
