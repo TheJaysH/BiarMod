@@ -18,22 +18,26 @@ By updating the `biartmod/biart.json` file you can add blocks & items at runtime
 {
   "TABS": [
     {
-      "langName" : "Example",
-      "icon" : "minecraft:block/dirt"
+      "langName" : "Example Tab",
+      "unlocalizedName" : "tabExample",
+      "icon" : ""
     }
   ],
   "BLOCKS": [
     {
       "langName" : "Example Block",
       "unlocalizedName": "exampleBlock",
-      "registryName" : "example_block"
+      "registryName" : "example_block",
+      "tabIndex" : 0
     }
   ],
   "ITEMS": [
     {
       "langName" : "Example Item",
       "unlocalizedName": "exampleItem",
-      "registryName" : "example_item"
+      "registryName" : "example_item",
+      "tabIndex" : 0,
+      "maxStackSize" : 16
     }
   ]
 }
