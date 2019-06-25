@@ -2,18 +2,45 @@
 
 ### **This mod is still at the POC stage and is not yet fully complete.** 
 
-
 ### What does this mod do?
 This mods purpose is to allow users to add basic blocks & items to Minecraft Forge without any custom code. 
 
-By updating the `biarmod/biar.json` file you can add blocks & items at runtime.
+You supply the mod with a zip file containing a json file and some textures.
+The json file is used to give the blocks & items their properties.
 
-### What doesn't this mod do?
+At launch a ResourcePack.zip is generated with the aforementioned blocks & items. 
+The blocks and items are then injected into forge to be used as normal blocks & items. 
+
+**Further documentation comming soon**
+
+### What dosen't this mod do?
  * This mod will **NOT** grant you the ability to add Entities of any kind (yet)
  * You will **NOT** be able to add any advance functionality to the blocks/items (yet)
 
 
-### Example JSON
+### Zip File Structure 
+
+```
+.minecraft/
+    |
+    |__ biarmod/
+        |
+        |__ biarmod.zip
+            |
+            |__biar.json
+            |
+            |__textures/
+                |
+                |__items/
+                |   |
+                |   |__example_item.png
+                |
+                |__blocks/
+                    |
+                    |__ example_block.png
+```    
+
+### Example JSON Structure
 ```json
 {
   "TABS": [
