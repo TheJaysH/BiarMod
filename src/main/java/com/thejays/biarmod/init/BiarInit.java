@@ -123,7 +123,6 @@ public class BiarInit {
             }
         else
             BiarMod.logger.warn("No TABS found in biart");
-
     }
 
     private static void deserializeBase(){
