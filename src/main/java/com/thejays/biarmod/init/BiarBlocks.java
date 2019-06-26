@@ -42,7 +42,7 @@ public class BiarBlocks {
         Material material;
         switch (materialString.toUpperCase()){
             default:
-                BiarMod.logger.error("Failed to match materialString: " + materialString + ". Using default instead");
+                BiarMod.logger.warn("Failed to match materialString: `" + materialString + "`. Using default instead");
                 material = Material.ROCK;
                 break;
         }
@@ -54,7 +54,7 @@ public class BiarBlocks {
         SoundType soundType;
         switch (soundTypeString){
             default:
-                BiarMod.logger.error("Failed to match soundTypeString: " + soundTypeString + ". Using default instead");
+                BiarMod.logger.warn("Failed to match soundTypeString: `" + soundTypeString + "`. Using default instead");
                 soundType = SoundType.STONE;
                 break;
         }

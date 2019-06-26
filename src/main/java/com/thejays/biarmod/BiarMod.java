@@ -27,11 +27,14 @@ public class BiarMod
 {
 
     public static final String MODID = "biarmod";
-    public static final String NAME = "Blocks & Items at Runtime";
+    public static final String NAME = "Blocks & Items";
     public static final String VERSION = "0.1.1";
     public static final String MC_VERSION = "[1.12.2]";
 
-    public static final File BIAR_ROOT = new File(Minecraft.getMinecraft().mcDataDir, BiarMod.MODID);
+    public static final File MINECRAFT_ROOT = new File(Minecraft.getMinecraft().mcDataDir, "/");
+
+    public static final File BIAR_ROOT = new File(MINECRAFT_ROOT, BiarMod.MODID);
+    public static final File RESOURCE_ROOT = new File(MINECRAFT_ROOT, "resourcepacks");
 
     public static Logger logger;
 

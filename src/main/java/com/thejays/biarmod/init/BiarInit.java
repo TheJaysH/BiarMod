@@ -70,7 +70,6 @@ public class BiarInit {
         } catch (Exception e) {
             BiarMod.logger.error("biart initItems failed: " + e.getMessage());
         }
-
     }
 
 
@@ -138,9 +137,9 @@ public class BiarInit {
         try {
 
             File fileZip = new File(BiarMod.BIAR_ROOT, "biarmod.zip");
-            File destDir = new File(BiarMod.BIAR_ROOT, "/");
+            File destDir = new File(BiarMod.BIAR_ROOT, "");
 
-            BiarArchiver.unZip(fileZip, destDir);
+            BiarArchiver.unzipBiar(fileZip, destDir);
 
         } catch (Exception e){
 
