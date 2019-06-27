@@ -3,7 +3,7 @@ package com.thejays.biarmod.util.resources;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BiarLangFile {
+public class BiarLangs {
 
     public static List<String> langFile = new ArrayList<>();
 
@@ -12,5 +12,8 @@ public class BiarLangFile {
     }
 
 
+    public void writeLangFile(){
+
+    }
 
 }

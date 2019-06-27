@@ -3,11 +3,17 @@ package com.thejays.biarmod.init;
 import com.thejays.biarmod.BiarMod;
 import com.thejays.biarmod.config.ConfigHandler;
 import com.thejays.biarmod.objects.BiarBase;
+import com.thejays.biarmod.objects.assets.BiarBlockModel;
+import com.thejays.biarmod.objects.assets.BiarBlockstate;
+import com.thejays.biarmod.objects.assets.BiarItemModel;
 import com.thejays.biarmod.objects.children.BiarBlockBase;
 import com.thejays.biarmod.objects.children.BiarItemBase;
 import com.thejays.biarmod.objects.children.BiarTabBase;
 import com.thejays.biarmod.util.BiarArchiver;
 import com.thejays.biarmod.util.BiarDeserialization;
+import com.thejays.biarmod.util.resources.BiarBlockModels;
+import com.thejays.biarmod.util.resources.BiarBlockstates;
+import com.thejays.biarmod.util.resources.BiarResourceGenerator;
 
 import java.io.File;
 
@@ -73,19 +79,27 @@ public class BiarInit {
     }
 
 
+    public static void postInit(){
+
+        BiarResourceGenerator.createResources();
+
+
+
+    }
+
     private static void initBlocks(){
 
         if (biarBase.hasBlocks())
             for (BiarBlockBase block : biarBase.BLOCKS){
 
-                if (!block.hasValues()){
-                    BiarMod.logger.warn("Refusing to load BLOCK: Missing required values");
-                    continue;
-                }
-
-                BiarMod.logger.info("ADDING BLOCK: " + block.registryName);
-                BiarBlocks.addBlock(block);
+            if (!block.hasValues()){
+                BiarMod.logger.warn("Refusing to load BLOCK: Missing required values");
+                continue;
             }
+
+            BiarMod.logger.info("ADDING BLOCK: " + block.registryName);
+            BiarBlocks.addBlock(block);
+        }
         else
             BiarMod.logger.warn("No BLOCKS found in biart");
 

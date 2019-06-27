@@ -13,7 +13,7 @@ public class ClientProxy implements IProxy{
 
         BiarInit.preInit();
         BiarInit.init();
-//        BiarInit.postInit();
+        BiarInit.postInit();
 
     }
 

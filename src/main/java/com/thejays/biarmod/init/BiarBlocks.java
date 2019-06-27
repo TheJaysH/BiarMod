@@ -32,7 +32,9 @@ public class BiarBlocks {
             BLOCKS.add(block);
 
         } catch (Exception e){
+
             BiarMod.logger.error("Failed to add Block to list - " + e.toString());
+
         }
 
     }
